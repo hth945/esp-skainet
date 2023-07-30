@@ -184,13 +184,13 @@ static esp_err_t bsp_codec_adc_deinit()
         audio_codec_delete_codec_if(record_codec_if);
         record_codec_if = NULL;
     }
-    
+
     // Delete codec control interface
     if (record_ctrl_if) {
         audio_codec_delete_ctrl_if(record_ctrl_if);
         record_ctrl_if = NULL;
     }
-    
+
     // Delete codec data interface
     if (record_data_if) {
         audio_codec_delete_data_if(record_data_if);
@@ -215,18 +215,18 @@ static esp_err_t bsp_codec_dac_deinit()
         audio_codec_delete_codec_if(play_codec_if);
         play_codec_if = NULL;
     }
-    
+
     // Delete codec control interface
     if (play_ctrl_if) {
         audio_codec_delete_ctrl_if(play_ctrl_if);
         play_ctrl_if = NULL;
     }
-    
+
     if (play_gpio_if) {
         audio_codec_delete_gpio_if(play_gpio_if);
         play_gpio_if = NULL;
     }
-    
+
     // Delete codec data interface
     if (play_data_if) {
         audio_codec_delete_data_if(play_data_if);
@@ -446,6 +446,7 @@ esp_err_t bsp_board_init(audio_hal_iface_samples_t sample_rate, int channel_form
 {
     int sample_fre = 16000;
     /*!< Initialize I2C bus, used for audio codec*/
+    printf("box3Init");
     bsp_i2c_init(I2C_NUM, I2C_CLK);
     switch (sample_rate) {
     case AUDIO_HAL_08K_SAMPLES:
